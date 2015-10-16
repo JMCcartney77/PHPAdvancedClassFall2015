@@ -11,6 +11,7 @@ html {
 }
 body {
   margin: 0;
+  background-image:
 }
 article,
 aside,
@@ -5003,16 +5004,18 @@ a.badge:focus {
 .nav-pills > li > a > .badge {
   margin-left: 3px;
 }
+// Styling For Jumbotron
 .jumbotron {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   margin-bottom: 30px;
-  color: inherit;
+  color: red;
   background-color: #eee;
 }
 .jumbotron h1,
 .jumbotron .h1 {
-  color: inherit;
+    padding-left: 50px;
+  color: red;
 }
 .jumbotron p {
   margin-bottom: 15px;
@@ -5031,8 +5034,8 @@ a.badge:focus {
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 10px;
+    padding-bottom: 05px;
   }
   .container .jumbotron,
   .container-fluid .jumbotron {

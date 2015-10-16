@@ -10,8 +10,8 @@
         <div class="panel-group">
            
                 
-        <div class="panel panel-success">
-      <div class="panel-heading"><h4>Please Complete:</h4></div>
+        <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Please Complete:</h4></div><br />
         Full Name: <input name="$fullname" value="<?php echo $fullname; ?>" /> <br /> <br />
         Address: <input name="$addressline1" value="<?php echo $addressline1; ?>" /> <br /><br />
         City: <input name="$city" value="<?php echo $city; ?>" /> <br /><br />
@@ -22,10 +22,6 @@
              
        <input type="submit" value="submit" class="btn btn-success" />
       
-           
-    
-        
-
 
     
       
