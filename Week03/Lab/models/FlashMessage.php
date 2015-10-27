@@ -12,19 +12,32 @@
  * @author 001267169
  */
 class FlashMessage extends Message {
-    
+
     public function __construct() {
-        
-        if ( !isset($_SESSION['flashmessages']) ) {
-        $_SESSION['flashmessages'] = array();
-        
+
+        if (!isset($_SESSION['flashmessages'])) {
+            $this->setFlashMessage();
         }
-    
-        $this->messages = $_SESSION['flashmessages'];
     }
-        public function addMessage($key,$msg) {
-            parent::addMessage($key, $msg);
-            $_SESSION['flashmessages'][$key] = $msg;
-            
-        }
+
+    public function addMessage($key, $msg) {
+        parent::addMessage($key, $msg);
+        $this->setFlashMessage();
+    }
+
+    public function removeAllMessages($key) {
+        parent::addMessage($key, $msg);
+        $this->setFlashMessage();
+    }
+
+    public function getAllMessages($key, $msg) {
+        $messages = $_SESSION['flashmessages'];
+        $this->removeMessage();
+        return $messages;
+    }
+
+    public function setFlashMessage() {
+        $_SESSION['flashmessages'] = $this->getAllMessages();
+    }
+
 }

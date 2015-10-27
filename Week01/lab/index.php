@@ -14,7 +14,6 @@
         <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../../js/npm.js" type="text/javascript"></script>
         <script src="../../js/bootstrap.js" type="text/javascript"></script>
-
     </head>
 
     <body>
@@ -31,7 +30,7 @@
         require_once './functions/dbconnect.php';
         require_once './functions/until.php';
 
-        $fullname = filter_input(INPUT_POST, 'fullname');
+        $fullname = filter_input(INPUT_POST, 'regexfullname');
         $email = filter_input(INPUT_POST, 'email');
         $addressline1 = filter_input(INPUT_POST, 'addressline1');
         $city = filter_input(INPUT_POST, 'city');
@@ -41,21 +40,18 @@
 
         //Regex validation for each field
         $regexzip = '/^[0-9]{5}(?:-[0-9]{4})?$/';
-        $regexfullname = '/^[A-Z][-a-zA-Z]+$/';
+        $regexfullname = '/^[^<,\"@/{}()*$%?=>:|;#]*$/i';
         $regexaddressline1 = '/^([0-9]+ )?[a-zA-Z ]+$/';
         $regexcity = '/^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/';
         $isValid = true;
         $error = array();
 
-
+        //I must be slow or something, I am having a hard time with Validation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if (isPostRequest()) {
             //Repeat for each field
             if (empty($fullname)) {
                 $error[] = '"Full Name" is required.';
-            } else if (!preg_match($regexfullname, $fullname)) {
-                $error[] = 'Invalid name format.';
-            }
-
+            } 
             if (empty($email)) {
                 $message[] = 'Email needed';
             }

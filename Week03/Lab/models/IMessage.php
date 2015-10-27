@@ -3,8 +3,8 @@
 interface IMessage {
 
     public function addMessage($key, $msg);
-
-    public function removeMessage($key);
-
+    public function removeAllMessages($key);
+    public function setFlashMessages();
     public function getAllMessages();
+    
 }

@@ -44,7 +44,7 @@ try {
     $validExts = array(
                     'jpg' => 'image/jpeg',
                     'png' => 'image/png',
-                    'gif' => 'image/gif',
+                    'gif' => 'image/gif'
                 );    
     $ext = array_search( $finfo->file($_FILES['upfile']['tmp_name']), $validExts, true );
     
@@ -58,8 +58,12 @@ try {
     // On this example, obtain safe unique name from its binary data.
     
     $fileName =  sha1_file($_FILES['upfile']['tmp_name']); 
-    $location = sprintf('./uploads/%s.%s', $fileName, $ext); 
-        
+    $location = sprintf('./uploads/%s.%s', $fileName, $ext);
+    
+    if ( !is_dir('./uploads') ) {
+        mkdir('./uploads');
+    }
+    
     if ( !move_uploaded_file( $_FILES['upfile']['tmp_name'], $location) ) {
         throw new RuntimeException('Failed to move uploaded file.');
     }
