@@ -11,6 +11,7 @@ function isPostRequest() {
 
 function addAddress($fullname, $addressline1, $city, $state, $zip, $email, $birthday) {
     
+    //Inputting the field info into the db colomns
     $db = dbconnect();
     $stmt = $db->prepare("INSERT INTO address SET fullname = :fullname, addressline1 = :addressline1, city = :city, state = :state, zip = :zip, email = :email, birthday = :birthday")  ;
     $binds = array(
@@ -22,7 +23,7 @@ function addAddress($fullname, $addressline1, $city, $state, $zip, $email, $birt
         ":email" => $email,
         ":birthday" => $birthday,        
     );
-    
+    //If all fields are correct adds the row to to the table
     if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
         return true;
     }
@@ -35,6 +36,7 @@ function getaddAddress() {
     $db = dbconnect();
     $stmt = $db->prepare("SELECT * FROM addAddress");
     
+    //Displays results
     $results = array();
     if ($stmt->execute() && $stmt->rowCount() > 0) {
        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);

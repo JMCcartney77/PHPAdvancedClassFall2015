@@ -9,7 +9,7 @@
   
         <div class="panel-group">
            
-                
+         <!--//Form for data -->      
         <div class="panel panel-primary style">
       <div class="panel-heading"><h4>Please Complete:</h4></div><br />
         Full Name: <input name="fullname" value="<?php echo $fullname; ?>" /> <br /> <br />

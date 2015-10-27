@@ -30,6 +30,7 @@
         require_once './functions/dbconnect.php';
         require_once './functions/until.php';
 
+        //Declare variables
         $fullname = filter_input(INPUT_POST, 'regexfullname');
         $email = filter_input(INPUT_POST, 'email');
         $addressline1 = filter_input(INPUT_POST, 'addressline1');
@@ -46,7 +47,8 @@
         $isValid = true;
         $error = array();
 
-        //I must be slow or something, I am having a hard time with Validation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //    I must be slow or something, I am having a hard time with Validation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //    I have the empty fields but using the regex to validate formatting is where I'm struggling
         if (isPostRequest()) {
             //Repeat for each field
             if (empty($fullname)) {
